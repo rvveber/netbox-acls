@@ -130,7 +130,7 @@ class ACLExtendedRule(ACLRule):
         base_field=models.PositiveIntegerField(),
         blank=True,
         null=True,
-        verbose_name="Soure Ports",
+        verbose_name="Source Ports",
     )
     destination_prefix = models.ForeignKey(
         blank=True,
@@ -140,6 +140,14 @@ class ACLExtendedRule(ACLRule):
         to="ipam.Prefix",
         verbose_name="Destination Prefix",
     )
+    # destination_address = models.ForeignKey(
+    #     blank=True,
+    #     null=True,
+    #     on_delete=models.PROTECT,
+    #     related_name="+",
+    #     to="ipam.Prefix",
+    #     verbose_name="Destination Prefix",
+    # )
     destination_ports = ArrayField(
         base_field=models.PositiveIntegerField(),
         blank=True,
